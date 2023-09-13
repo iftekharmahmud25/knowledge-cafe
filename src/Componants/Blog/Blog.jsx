@@ -4,12 +4,12 @@ import { FaBookmark} from 'react-icons/fa';
 
 
 const Blog = ({blog,addToBookmarks,handleMarksRead}) => {
-    const {title,cover,author,author_img,posted_date,reading_time,hashtags} = blog;
+    const {id,title,cover,author,author_img,posted_date,reading_time,hashtags} = blog;
     return (
         <div className='mb-20'>
          
 
-            <img className='w-full' src={cover} alt={`Cover picture of the cover ${title}`} />
+            <img className=' w-[500px] rounded-md' src={cover} alt={`Cover picture of the cover ${title}`} />
             <h2 className="text-3xl">{title}</h2>
             <div className='flex justify-between items-center'>
                 <div className='flex '>
@@ -34,7 +34,7 @@ const Blog = ({blog,addToBookmarks,handleMarksRead}) => {
                     hashtags.map((hash)=> <span className='px-1 text-pink-400'><a href="">#{hashtags}</a></span>)
                 }
             </p>
-            <button onClick={()=>handleMarksRead(reading_time)} className='underline text-pink-500'>Mark As Read</button>
+            <button onClick={()=>handleMarksRead(id,reading_time)} className='underline text-pink-500'>Mark As Read</button>
         </div>
     );
 };
